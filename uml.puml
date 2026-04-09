@@ -1,0 +1,47 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam classFontSize 13
+skinparam ArrowColor #333333
+skinparam ClassBorderColor #444444
+
+package "javafx.scene.layout" {
+    class GridPane {
+    }
+}
+
+package "keypad" {
+    class KeyPadPane {
+        # btn0..btn9 : Button
+        # btnBlank1 : Button
+        # btnBlank2 : Button
+        # btnAsterisk : Button
+        # btnPound : Button
+        # listButtons : ArrayList<Button>
+        + KeyPadPane()
+        + KeyPadPane(phoneOrder : boolean)
+        # registerEventHandlers()
+    }
+
+    class StyledKeyPadPane {
+        - BTN_STYLE : String
+        - BLANK_STYLE : String
+        + StyledKeyPadPane()
+    }
+
+    class KeyPadPanePlus {
+        + KeyPadPanePlus()
+    }
+}
+
+class PAssign07 {
+    + start(primaryStage : Stage)
+    + main(args : String[])
+}
+
+GridPane <|-- KeyPadPane
+KeyPadPane <|-- StyledKeyPadPane
+KeyPadPane <|-- KeyPadPanePlus
+PAssign07 ..> StyledKeyPadPane : uses
+
+@enduml
